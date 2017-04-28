@@ -31,10 +31,29 @@ public class UniversalConverter {
         targetConverter = converters.get(idx - 1);
     }
 
+    public UnitConverter getSourceConverter() {
+        return sourceConverter;
+    }
+
+    public UnitConverter getTargetConverter() {
+        return targetConverter;
+    }
+
     @Command
     public double convert(double value) {
-        double si = sourceConverter.toSI(value);
-        return targetConverter.fromSI(si);
+        UnitConverter src = getSourceConverter();
+        UnitConverter trg = getTargetConverter();
+        if (src == null && trg == null) {
+            throw new IllegalStateException("Source and Target converters are not set");
+        }
+        if (src == null) {
+            throw new IllegalStateException("Source converter is not set");
+        }
+        if (trg == null) {
+            throw new IllegalStateException("Target converter is not set");
+        }
+        double si = src.toSI(value);
+        return trg.fromSI(si);
     }
 }
 
