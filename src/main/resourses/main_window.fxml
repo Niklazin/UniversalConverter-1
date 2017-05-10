@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<GridPane fx:controller="uconverter.ConverterController"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center" hgap="10" vgap="10" styleClass="root">
+
+    <padding>
+        <Insets top="10" bottom="10" left="10" right="10"/>
+    </padding>
+
+    <Label text="Sourse Unit" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ComboBox fx:id="srcUnit" GridPane.columnIndex="1" GridPane.RowIndex="0"/>
+
+    <Label text="Sourse Value" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="srcValue" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Target Unit" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <ComboBox fx:id="trgUnit" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+    <Label text="Result:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <TextField fx:id="trgValue" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+    <Button text="Convert"
+            GridPane.halignment="CENTER"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="4"
+            onAction="#convert" />
+
+
+
+
+</GridPane>
